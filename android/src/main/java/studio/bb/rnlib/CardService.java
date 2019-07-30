@@ -63,8 +63,8 @@ public class CardService extends HostApduService {
     }
 
     public static byte[] BuildSelectApdu(String aid) {
-        return HexStringToByteArray(SELECT_APDU_HEADER + String.format("%02X",
-                aid.length() / 2) + aid);
+       return HexStringToByteArray(SELECT_APDU_HEADER + String.format("%02X",
+               aid.length() / 2) + aid + String.format("%02X", 0));
     }
 
     public static byte[] ConcatArrays(byte[] first, byte[]... rest) {
